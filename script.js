@@ -73,19 +73,16 @@ const registerUserInEvent = async (
     country
 ) => {
     // post with axios
-    const response = await axios.post(
+    const response = await axios.get(
         `https://mm-events-api.herokuapp.com/api/events/${eventId}/register`,
         {
-            fullName,
-            email,
-            phone,
-            company,
-            city,
-            country,
-        },
-        {
-            headers: {
-                "Content-Type": "application/json",
+            params: {
+                fullName,
+                email,
+                phone,
+                company,
+                city,
+                country,
             },
         }
     );
