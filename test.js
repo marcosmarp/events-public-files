@@ -5,6 +5,9 @@ window.onload = () => {
 
     const submitButton = document.querySelector('[type="submit"]');
 
+    console.log(nameInput)
+    console.log(submitButton)
+
     // when the user clicks the submit button
     submitButton?.addEventListener('click', () => {
         // @ts-ignore
