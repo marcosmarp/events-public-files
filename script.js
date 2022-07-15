@@ -4,12 +4,6 @@ window.onload = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const eventId = urlParams.get("eventId");
 
-    // append script to the end of head
-    const script = document.createElement("script");
-    script.src =
-        "https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js";
-    document.head.appendChild(script);
-
     var observer = new MutationObserver(function (mutations) {
         mutations.forEach(async (mutation) => {
             if (
@@ -72,20 +66,6 @@ const registerUserInEvent = async (
     city,
     country
 ) => {
-    // post with axios
-    const response = await axios.get(
-        `https://mm-events-api.herokuapp.com/api/events/${eventId}/register`,
-        {
-            params: {
-                fullName,
-                email,
-                phone,
-                company,
-                city,
-                country,
-            },
-        }
-    );
-
-    console.log(response);
+    const url = `https://mm-events.vercel.app/?eventId=${eventId}&fullName=${fullName}&email=${email}&phone=${phone}&company=${company}&city=${city}&country=${country}`;
+    window.location.href = url;
 };
