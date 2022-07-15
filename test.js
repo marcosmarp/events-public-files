@@ -1,8 +1,17 @@
 window.onload = () => {
     const form = document.getElementById("form");
     const inputs = document.getElementsByTagName("input");
-    form?.addEventListener("change", () => {
-        console.log("submited");
-        console.log(inputs);
+
+    var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            if (mutation.type === "attributes") {
+                console.log("submitted");
+            }
+        });
+    });
+
+    //  @ts-ignore
+    observer.observe(form, {
+        attributes: true,
     });
 };
