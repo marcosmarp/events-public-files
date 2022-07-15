@@ -4,6 +4,12 @@ window.onload = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const eventId = urlParams.get("eventId");
 
+    // append script to the end of head
+    const script = document.createElement("script");
+    script.src =
+        "https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js";
+    document.head.appendChild(script);
+
     var observer = new MutationObserver(function (mutations) {
         mutations.forEach(async (mutation) => {
             if (
@@ -66,21 +72,23 @@ const registerUserInEvent = async (
     city,
     country
 ) => {
-    await fetch(
+    // post with axios
+    const response = await axios.post(
         `https://mm-events-api.herokuapp.com/api/events/${eventId}/register`,
         {
-            method: "POST",
+            fullName,
+            email,
+            phone,
+            company,
+            city,
+            country,
+        },
+        {
             headers: {
-                "Content-Type": "text/plain",
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                fullName,
-                email,
-                phone,
-                company,
-                city,
-                country,
-            }),
         }
     );
+
+    console.log(response);
 };
