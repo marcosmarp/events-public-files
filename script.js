@@ -6,7 +6,10 @@ window.onload = () => {
 
     var observer = new MutationObserver(function (mutations) {
         mutations.forEach(function (mutation) {
-            if (mutation.type === "attributes") {
+            if (
+                mutation.type === "attributes" &&
+                mutation.attributeName === "data-submission-phase"
+            ) {
                 // log all the inputs values
                 for (let inp of inputs) {
                     console.log(inp.value);
