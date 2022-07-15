@@ -5,14 +5,14 @@ window.onload = () => {
 
     const submitButton = document.querySelector('[type="submit"]');
 
-    console.log(nameInput)
-    console.log(submitButton)
+    console.log(nameInput);
+    console.log(submitButton);
 
     // when the user clicks the submit button
-    submitButton?.addEventListener('click', () => {
+    submitButton?.addEventListener("click", () => {
         // @ts-ignore
         if (!nameInput?.value) return;
         // @ts-ignore
         console.log(`Desde github: ${nameInput.value}`);
-    }
+    });
 };
