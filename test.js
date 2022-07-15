@@ -3,7 +3,7 @@ window.onload = () => {
         '[placeholder="Nombre y apellido"]'
     );
 
-    const submitButton = document.querySelector('[type="submit"]');
+    const submitButton = document.querySelector('[data-role="submit"]');
 
     console.log(nameInput);
     console.log(submitButton);
