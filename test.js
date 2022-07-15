@@ -1,9 +1,8 @@
 window.onload = () => {
     const form = document.getElementById("form");
-    console.log(form);
-    // on form submit, get console.log all values
+    const inputs = document.getElementsByTagName("input");
     form?.addEventListener("submit", (e) => {
-        console.log(e);
-        console.log(form);
+        console.log("submited");
+        console.log(inputs);
     });
 };
