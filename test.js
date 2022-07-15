@@ -3,13 +3,13 @@ window.onload = () => {
         '[placeholder="Nombre y apellido"]'
     );
 
-    const submitButton = document.querySelector("button[type='submit']");
+    const submitButton = document.getElementsByTagName("button");
 
     console.log(nameInput);
     console.log(submitButton);
 
     // when the user clicks the submit button
-    submitButton?.addEventListener("click", () => {
+    submitButton[0].addEventListener("click", () => {
         // @ts-ignore
         if (!nameInput?.value) return;
         // @ts-ignore
