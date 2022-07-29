@@ -67,7 +67,7 @@ const registerUserInEvent = async (
     country
 ) => {
     const urlParams = new URLSearchParams(window.location.search);
-    const isDev = urlParams.get("env") === "dev";
+    const isDev = urlParams.get("env") === "development";
     const base = isDev
         ? "http://localhost:3001"
         : "https://mm-events.vercel.app";
