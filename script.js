@@ -66,6 +66,11 @@ const registerUserInEvent = async (
     city,
     country
 ) => {
-    const url = `https://mm-events.vercel.app/events/registered?eventId=${eventId}&fullName=${fullName}&email=${email}&phone=${phone}&company=${company}&city=${city}&country=${country}`;
+    const urlParams = new URLSearchParams(window.location.search);
+    const isDev = urlParams.get("env") === "dev";
+    const base = isDev
+        ? "http://localhost:3001"
+        : "https://mm-events.vercel.app";
+    const url = `${base}/events/registered?eventId=${eventId}&fullName=${fullName}&email=${email}&phone=${phone}&company=${company}&city=${city}&country=${country}`;
     window.location.href = url;
 };
